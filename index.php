@@ -11,9 +11,9 @@
 	</head>
 <body>
 <?php
-//$url = 'alertario.rio.rj.gov.br/upload/xml/Chuvas.xml';
+
 //$xml = simplexml_load_file('Chuvas.xml');
-//$xml = simplexml_load_file($url);
+
 $xml = simplexml_load_file('http://alertario.rio.rj.gov.br/upload/xml/Chuvas.xml');
 
 foreach ($xml->estacao as $estacao) {
@@ -26,11 +26,14 @@ foreach ($xml->estacao as $estacao) {
     $mes = $chuvas['mes'];
     $dia = $chuvas['h24'];
     $h12 = $dia / 2 ;
-    $hora = $chuvas['hora'];
+    //$hora = $chuvas['hora'];
+    $datahora = strtotime($chuvas['hora']);
+    $data = date("d/m/Y", $datahora);
+    $hora = date("H:i", $datahora);
     echo "ML / 12hrs: $h12 <br>";
     echo "ML / dia: $dia <br>";
     echo "ML / mês: $mes <br>";
-    echo "Data/Hora: $hora <br>";
+    echo "Data/Hora: $data - $hora<br>";
     echo "<br>";
 }
 ?>
