@@ -1,0 +1,17 @@
+#footer {
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0px;
+    z-index: 1;
+
+}
+#info {
+    margin-left: 4%;
+}
+body {
+    width: 100%;
+    min-height: 100%;
+}
+html {
+    height: 100%;
+  }
